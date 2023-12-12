@@ -37,12 +37,11 @@ app.get('/new-session', (req, res) => {
 });
 
 app.post('/send/:SESSION_UUID', async (req, res) => {
-    console.log(req.params.SESSION_UUID);
 
     const sessionUUID = req.params.SESSION_UUID;
 
     const session = SESSIONS[sessionUUID];
-    console.log(req.body)
+
     if(!session){
         res.status(404);
         res.json({
