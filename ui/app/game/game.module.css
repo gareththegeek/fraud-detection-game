@@ -51,7 +51,14 @@
 .getanswer {
   width: 200px;
   height: 50px;
-  background-color: lightblue;
+  background-color: lightseagreen;
+  margin: 10px;
+}
+
+.addrule {
+  width: 100px;
+  height: 30px;
+  background-color: lightgray;
   margin: 10px;
 }
 

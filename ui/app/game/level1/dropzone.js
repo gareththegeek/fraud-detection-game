@@ -2,15 +2,15 @@ import styles from '../game.module.css'
 import api from '../../api'
 import { useState } from 'react'
 
+const defaultRules = [
+  "Repeated payments of similar amounts to the same destination SortCode or AccountHash in a short space of time",
+  "Rejected payments",
+  "Payments from lots of different sources to the same destination SortCode or AccountHash"
+]
+
 export default function Dropzone({  options = [], messages = [], levelId, stepId = 1 }) {
 
-  const [txs, setTxs] = useState([])
-  const rules = [
-    "Repeated payments of similar amounts to the same destination SortCode or AccountHash in a short space of time",
-    "Rejected payments",
-    "Payments from lots of different sources to the same destination SortCode or AccountHash"
-  ]
-
+  const [rules, setRules] = useState(defaultRules)
   const promptTemplate = `
   Let's play a game.
 
@@ -37,9 +37,12 @@ The format of the input dataset is a tab delimited table of text. I'm aware that
 
   `
 
+  const addRule = () => {
+    setRules([...rules, ""])
+  }
+
   const onClick = () => {
     document.getElementById("answer").innerHTML = ""
-    setTxs(document.getElementById("txs").value.split("\n"))
     const { promptGpt} = api()
     return promptGpt(promptTemplate)
     .then(({session}) => promptGpt(document.getElementById("txs").value, session))
@@ -52,6 +55,9 @@ The format of the input dataset is a tab delimited table of text. I'm aware that
       id="dropzone1"
     >
 
+      <div>
+        <button className={styles.addrule} onClick={addRule}>Add rule</button>
+      </div>
       {rules.map((rule) => {
         return  (
           <div className={styles.rule} key={rule}>
