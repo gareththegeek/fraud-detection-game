@@ -5,8 +5,8 @@ import { Providers } from './providers'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Token Raider',
-  description: 'Learn Open ID Connect with this interactive game!',
+  title: 'Fraud Marauder',
+  description: 'Learn how to detect fraud with this interactive game!',
 }
 
 export default function RootLayout({ children }) {

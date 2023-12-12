@@ -13,9 +13,10 @@
 
 .pagetitle {
   min-height: 50px;
+  margin-top: 5px;
   position: absolute;
   top: 5px;
-  left: 320px;
+  left: 580px;
 }
 
 .content {

@@ -22,7 +22,7 @@ export default function Home() {
 
   promptGpt("hello")
     .then(console.log)
-    .then(closeGpt) 
+    .then(closeGpt)
 
   return (
     <main className={styles.main}>
