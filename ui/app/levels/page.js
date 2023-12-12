@@ -17,10 +17,10 @@ export default function Levels() {
       </div>
 
       <div className={styles.grid}>
-        <Link href="/game/implicit-flow" className={styles.card}>
+        <Link href="/game/level1" className={styles.card}>
           <Image
-            src="/level_1.gif"
-            alt="Level 1: implicit flow"
+            src="/level1.png"
+            alt="Level 1"
             width={320}
             height={140}
             priority
