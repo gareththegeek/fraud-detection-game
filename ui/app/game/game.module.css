@@ -22,7 +22,7 @@
 .content {
   position: absolute;
   top: 80px;
-  left: 50px;
+  left: 10px;
 }
 
 .speech {
@@ -36,6 +36,22 @@
   background-image: url("/chat-box.gif");
   background-position: center;
   background-size: cover;
+}
+
+.rule {
+  width: 150px;
+  height: 40px;
+}
+
+.ruleinput {
+  size: 200;
+  height: 40px;
+}
+
+.answer {
+  width: 1200px;
+  height: 300px;
+  background-color: green;
 }
 
 .innerspeech {
@@ -73,11 +89,11 @@
 
 .codeinternal {
   border: 5px solid grey;
-  width: 650px;
+  width: 1250px;
   height: 530px;
   position: absolute;
   top: 0;
-  left: 200px;
+  left: 50px;
 }
 
 .requestPanel {}

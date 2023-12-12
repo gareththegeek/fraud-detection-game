@@ -16,6 +16,11 @@ export default function Dropzone({ requestPanelImagePath, options = [], messages
 
   const drop = (event) => {
     event.preventDefault()
+
+    // TODO call fetch to server APIs and get response (maybe console.log for now)
+
+
+
     if (optionNames.includes(dragId)) {
       dispatch(setAnswer({ levelId, stepId, answerName: dragId }))
       dispatch(setText(messages.filter(({name}) => name == dragId)[0].message))
@@ -32,6 +37,16 @@ export default function Dropzone({ requestPanelImagePath, options = [], messages
     }
   }
 
+  const onClick = () => {
+
+  }
+
+  const rules = [
+"Repeated payments of similar amounts to the same destination SortCode or AccountHash in a short space of time",
+"Rejected payments",
+"Payments from lots of different sources to the same destination SortCode or AccountHash"
+  ]
+
   return (
     <div
       className={styles.codeinternal}
@@ -40,36 +55,22 @@ export default function Dropzone({ requestPanelImagePath, options = [], messages
       onDragOver={(e) => allowDrop(e)}
       onClick={(e) => click(e)}
     >
-      <div className={styles.center}>
-        <Image
-          className={styles.requestPanel}
-          src={`${requestPanelImagePath}`}
-          alt={`Request panel`}
-          width={512}
-          height={512}
-          priority
-          unoptimized
-        />
-        {options.map((option) => {
-          return <div
-            key={option.name}
-            style={{ top: option.targetTop, left: option.targetLeft, height: option.imageHeight, width: option.imageWidth }}
-            className={styles.imagewrapper}>
-            <Image
-              key={option.name}
-              id={`${option.name}-drag`}
-              className={styles.optionimageDrag}
-              src={`${option.imagePath}`}
-              alt={`${option.name}`}
-              width={option.imageWidth}
-              height={option.imageHeight}
-              priority
-              unoptimized
-              hidden={!(answers[option.name])}
-            />
+
+      {rules.map((rule) => {
+        return  (
+          <div className={styles.rule}>
+            <input type='text' name="rule" defaultValue={rule} className={styles.ruleinput} />
           </div>
-        })}
+        )
+      })}
+
+      <textarea id="summary" />
+
+      <div>
+        <button onClick={onClick}>Get stuff</button>
       </div>
+
+      <div className={styles.answer}/>
     </div>
   )
 }

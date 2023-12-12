@@ -83,9 +83,9 @@ export default function ImplicitFlow() {
   return (
     <LevelPage
       levelId={"level1"}
-      levelTitleImageName={"implicit-flow"}
-      levelTitleAltText={"Level 1: Implicity Flow"}
-      levelTitleWidth={500}
+      levelTitleImageName={"level1heading"}
+      levelTitleAltText={"Level 1"}
+      levelTitleWidth={200}
       levelTitleHeight={60}
       options={options}
       answers={[{ dropzoneId: "dropzone1", dragId: "get-request" }]}

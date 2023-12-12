@@ -63,9 +63,7 @@ export default function LevelPage({
         </div>
       </div>
       <div className={styles.content}>
-        <StepsList steps={steps}></StepsList>
         {children}
-        <OptionsList options={options}></OptionsList>
       </div>
       <div className={styles.speech}>
         <div className={styles.hero}>
