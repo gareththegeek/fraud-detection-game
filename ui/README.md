@@ -1,6 +1,6 @@
-# OIDC Game - Token Raider
+# Fraud Detection Game - Fraud Maruader
 
-Learn how to use Open ID Connect via this simple interactive game
+Learn how to detect fraud using LLMs via this simple interactive game
 
 ## Getting started
 
@@ -12,9 +12,9 @@ You need to have [Node.js](https://nodejs.org) installed, using at least version
 
 Clone the repository and then run `npm install` from the root of the repository to install the required NPM dependencies
 
-## Run the development server
+## Run the development server in UI folder
 
-To run the development web server, run the following:
+To run the development web server, cd into `ui` folder run the following:
 
 ```bash
 npm run dev
@@ -22,4 +22,3 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-![Alt text](https://github.com/mattcobley/oidc-game/blob/main/title_screen.png?raw=true "Token Raider Title Screen")
