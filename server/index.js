@@ -15,7 +15,6 @@ app.use(bodyParser.json());
 app.use(cors())
 
 const SESSIONS = {};
-console.log(process.env.CREDAL_API_KEY)
 
 const OPENAI_CLIENT = new OpenAIApi(
   new Configuration({

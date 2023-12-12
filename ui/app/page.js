@@ -18,10 +18,11 @@ export default function Home() {
     dispatch(setText(""))
   }
 
-  const {promptGpt} = api()
+  const {promptGpt, closeGpt} = api()
 
   promptGpt("hello")
     .then(console.log)
+    .then(closeGpt())
 
   return (
     <main className={styles.main}>

@@ -13,6 +13,15 @@ export default function api() {
     })
     const parsedResponse = await response.json()
 
+    return {...parsedResponse, session: parsedSession.data}
+  }
+
+  const closeGpt = async (session) => {
+    const response = await fetch(`http://localhost:5000/delete-session/${session}`, {
+      method: "POST",
+    })
+    const parsedResponse = await response.json()
+
     return parsedResponse
   }
 
