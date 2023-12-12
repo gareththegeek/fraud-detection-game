@@ -56,8 +56,9 @@ app.post('/send/:SESSION_UUID', async (req, res) => {
         });
 
         const completion = await OPENAI_CLIENT.createChatCompletion({
-          model: "gpt-4",
+          model: "gpt-4-1106-preview",
           messages: session,
+          response_format: { type: "json_object" }
         });
 
         console.log(completion.data.choices[0]);
