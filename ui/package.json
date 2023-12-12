@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mft/moneyhub-api-client": "^5.91.2",
     "@reduxjs/toolkit": "^1.9.5",
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.4",

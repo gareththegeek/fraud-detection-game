@@ -35,8 +35,29 @@ export default function api() {
     return parsedResponse
   }
 
+  const getUrl = async () => {
+    const response = await fetch(`http://localhost:5000/get-url`)
+    const parsedResponse = await response.json()
+
+    return parsedResponse
+  }
+
+  const getTransactions = async (token) => {
+    const response = await fetch(`https://api.moneyhub.co.uk/v2.0/transactions`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    
+    })
+    const parsedResponse = await response.json()
+
+    return parsedResponse
+  }
+
   return {
     promptGpt,
-    closeGpt
+    closeGpt,
+    getUrl,
+    getTransactions
   }
 }
