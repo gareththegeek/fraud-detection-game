@@ -41,6 +41,7 @@
 .rule {
   width: 150px;
   height: 40px;
+  margin: 10px;
 }
 
 .ruleinput {
@@ -48,10 +49,18 @@
   height: 40px;
 }
 
+.getanswer {
+  width: 200px;
+  height: 50px;
+  background-color: lightblue;
+  margin: 10px;
+}
+
 .answer {
   width: 1200px;
   height: 300px;
-  background-color: green;
+  background-color: white;
+  color: black;
 }
 
 .innerspeech {
@@ -90,7 +99,7 @@
 .codeinternal {
   border: 5px solid grey;
   width: 1250px;
-  height: 530px;
+  height: 700px;
   position: absolute;
   top: 0;
   left: 50px;

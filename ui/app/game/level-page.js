@@ -65,54 +65,7 @@ export default function LevelPage({
       <div className={styles.content}>
         {children}
       </div>
-      <div className={styles.speech}>
-        <div className={styles.hero}>
-          <Image
-            className={styles.innerhero}
-            src="/hacker_hero.gif"
-            alt="hero image"
-            width={120}
-            height={120}
-            priority
-            unoptimized
-          />
-        </div>
-        <div className={styles.innerspeech}>{text}</div>
-      </div>
-      <Image
-        className={styles.authreqcomplete}
-        src={`/auth_request_complete.gif`}
-        alt={`Auth request complete`}
-        width={512}
-        height={512}
-        priority
-        unoptimized
-        hidden={!showStep1Complete}
-        onClick={() => onStep1Click()}
-      />
-      <Image
-        className={styles.consentcomplete}
-        src={`/token_acquired.gif`}
-        alt={`Consent complete`}
-        width={512}
-        height={512}
-        priority
-        unoptimized
-        hidden={!showConsentComplete}
-        onClick={() => onStep2Click()}
-      />
-      <Link href={`/`}>
-        <Image
-          className={styles.implicitcomplete}
-          src={`/implicit_success.gif`}
-          alt={`Implicit flow complete`}
-          width={512}
-          height={512}
-          priority
-          unoptimized
-          hidden={!showStep3Complete}
-        />
-      </Link>
+
     </div>
   )
 }

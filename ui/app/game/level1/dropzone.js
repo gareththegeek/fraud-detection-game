@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import Image from 'next/image'
 import { setAnswer } from '../../answerSlice'
 import { setText, resetText } from '../../textSlice'
+import api from '../../api'
 
 export default function Dropzone({ requestPanelImagePath, options = [], messages = [], levelId, stepId = 1 }) {
   const dispatch = useDispatch()
@@ -16,10 +17,6 @@ export default function Dropzone({ requestPanelImagePath, options = [], messages
 
   const drop = (event) => {
     event.preventDefault()
-
-    // TODO call fetch to server APIs and get response (maybe console.log for now)
-
-
 
     if (optionNames.includes(dragId)) {
       dispatch(setAnswer({ levelId, stepId, answerName: dragId }))
@@ -37,15 +34,42 @@ export default function Dropzone({ requestPanelImagePath, options = [], messages
     }
   }
 
-  const onClick = () => {
 
-  }
 
   const rules = [
-"Repeated payments of similar amounts to the same destination SortCode or AccountHash in a short space of time",
-"Rejected payments",
-"Payments from lots of different sources to the same destination SortCode or AccountHash"
+    "Repeated payments of similar amounts to the same destination SortCode or AccountHash in a short space of time",
+    "Rejected payments",
+    "Payments from lots of different sources to the same destination SortCode or AccountHash"
   ]
+
+  const promptTemplate = `
+  Let's play a game.
+
+We have a dataset of fake payments that we made up for the game. We're pretending that some of the payments were fraudulent. Think about what aspects of a set of payments might indicate fraudulent activity over time.
+
+Indicators of fraudulent payment activity may include:
+ ${rules.map((rule) => `\n ${rule}`)}
+
+ In the next message, I will give you a dataset of payments, and I would like you to identify any payments that have a high probability of being fraudulent.
+
+For each potentially fraudulent payment, provide your reasoning for identifying. Where there are groups of payments that belong to the same pattern of activity, please allocate a unique number to each group.
+Please provide the results in table format, and for each payment, include:
+
+IDHash
+Amount
+createdAt
+status
+Reason for suspicion
+Activity pattern group
+
+The format of the input dataset is a tab delimited table of text. I'm aware that you're not designed for sophisticated data analysis, but please try anyway, as an experiment.
+
+  `
+
+  const onClick = () => {
+    const { promptGpt} = api()
+    return promptGpt(promptTemplate).then((answer) => document.getElementById("answer").innerHTML = answer.data.replace(/\n/g, "<br>"))
+  }
 
   return (
     <div
@@ -64,13 +88,11 @@ export default function Dropzone({ requestPanelImagePath, options = [], messages
         )
       })}
 
-      <textarea id="summary" />
-
       <div>
-        <button onClick={onClick}>Get stuff</button>
+        <button className={styles.getanswer} onClick={onClick}>Find fraud!</button>
       </div>
 
-      <div className={styles.answer}/>
+      <div id="answer" className={styles.answer}/>
     </div>
   )
 }
