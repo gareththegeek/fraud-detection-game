@@ -26,6 +26,7 @@ export default function api() {
   }
 
   return {
-    promptGpt
+    promptGpt,
+    closeGpt
   }
 }
