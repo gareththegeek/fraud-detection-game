@@ -82,9 +82,11 @@
 }
 
 .answer {
-  width: 1200px;
-  background-color: white;
+  width: 90%;
+  padding: 20px;
+  background-color: rgb(185, 185, 185);
   color: black;
+  font-size: 18px;
 }
 
 .innerspeech {
