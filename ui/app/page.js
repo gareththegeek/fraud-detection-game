@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { resetLevel } from './answerSlice'
 import { setStepId } from './stepSlice'
 import { setText } from './textSlice'
+import api from './api'
 
 export default function Home() {
   const dispatch = useDispatch()
@@ -16,6 +17,11 @@ export default function Home() {
     dispatch(setStepId({ levelId: "level1", stepId: 1 }))
     dispatch(setText(""))
   }
+
+  const {promptGpt} = api()
+
+  promptGpt("hello")
+    .then(console.log)
 
   return (
     <main className={styles.main}>

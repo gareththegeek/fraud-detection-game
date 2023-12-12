@@ -1,6 +1,7 @@
 import _ from './env.js';
 import { Configuration, OpenAIApi } from "openai";
 import { v4 as uuidv4 } from 'uuid';
+import cors from "cors"
 
 import express from 'express';
 import bodyParser from 'body-parser';
@@ -11,8 +12,10 @@ const app = express();
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
+app.use(cors())
 
 const SESSIONS = {};
+console.log(process.env.CREDAL_API_KEY)
 
 const OPENAI_CLIENT = new OpenAIApi(
   new Configuration({
@@ -40,7 +43,7 @@ app.post('/send/:SESSION_UUID', async (req, res) => {
     const sessionUUID = req.params.SESSION_UUID;
 
     const session = SESSIONS[sessionUUID];
-
+    console.log(req.body)
     if(!session){
         res.status(404);
         res.json({
