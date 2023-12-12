@@ -21,7 +21,7 @@ export default function Home() {
     <main className={styles.main}>
       <div className={styles.description}>
         <p>
-          Learn Open ID Connect in this interactive game!
+          Learn about fraud detection in this interactive game!
         </p>
         <div>
           <a
@@ -45,26 +45,15 @@ export default function Home() {
       <div className={styles.center}>
         <Image
           className={styles.logo}
-          src="/token-raider-title.png"
-          alt="Token Raider Title"
+          src="/fraud-marauder-title.png"
+          alt="Fraud Marauder Title"
           width={700}
-          height={180}
+          height={350}
           priority
         />
       </div>
 
       <div className={styles.grid}>
-        <a
-          href="https://openid.net/"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn more about Open ID Connect</p>
-        </a>
 
         <Link href="/levels" className={styles.card}>
           <h1>
