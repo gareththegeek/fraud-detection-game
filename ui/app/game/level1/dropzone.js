@@ -60,6 +60,7 @@ export default function Dropzone({  options = [], messages = [], levelId, stepId
       <div>
         <button className={styles.addrule} onClick={addRule}>Add rule</button>
       </div>
+      <div className={styles.rules}>
       {rules.map((rule) => {
         return  (
           <div className={styles.rule} key={rule}>
@@ -67,11 +68,12 @@ export default function Dropzone({  options = [], messages = [], levelId, stepId
           </div>
         )
       })}
+      </div>
 
       <div>
       <label className={styles.label}>Paste in transaction data from spreadsheet</label>
         </div>
-      <textarea className={styles.txs} id="txs" name="text" rows="8" cols="50" />
+      <textarea className={styles.txs} id="txs" name="text" />
 
       <div>
         <button className={styles.getanswer} onClick={onClick}>Find fraud!</button>
