@@ -69,9 +69,9 @@ export default function Dropzone({  options = [], messages = [], levelId, stepId
       })}
 
       <div>
-      <label>Paste in transaction data from spreadsheet</label>
+      <label className={styles.label}>Paste in transaction data from spreadsheet</label>
         </div>
-      <textarea id="txs" name="text" rows="8" cols="50" />
+      <textarea className={styles.txs} id="txs" name="text" rows="8" cols="50" />
 
       <div>
         <button className={styles.getanswer} onClick={onClick}>Find fraud!</button>
