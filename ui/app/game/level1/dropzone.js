@@ -31,14 +31,19 @@ status
 Reason for suspicion
 Activity pattern group
 
+Please provide the response in JSON format with no other information other than the table data starting with.
+
 The format of the input dataset is a tab delimited table of text. I'm aware that you're not designed for sophisticated data analysis, but please try anyway, as an experiment.
 
   `
 
   const onClick = () => {
+    document.getElementById("answer").innerHTML = ""
     setTxs(document.getElementById("txs").value.split("\n"))
     const { promptGpt} = api()
-    return promptGpt(promptTemplate).then((answer) => document.getElementById("answer").innerHTML = answer.data.replace(/\n/g, "<br>"))
+    return promptGpt(promptTemplate)
+    .then(({session}) => promptGpt(document.getElementById("txs").value, session))
+    .then((answer) => document.getElementById("answer").innerHTML = answer.data.replace(/\n/g, "<br>"))
   }
 
   return (
@@ -49,7 +54,7 @@ The format of the input dataset is a tab delimited table of text. I'm aware that
 
       {rules.map((rule) => {
         return  (
-          <div className={styles.rule}>
+          <div className={styles.rule} key={rule}>
             <input type='text' name="rule" defaultValue={rule} className={styles.ruleinput} />
           </div>
         )
